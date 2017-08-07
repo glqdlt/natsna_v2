@@ -29,17 +29,17 @@
      <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
   </head>
   <body ng-app="myApp" class="ng-cloak">
-      <div class="generic-container" ng-controller="UserController as ctrl">
+      <div class="generic-container" ng-controller="UserController as jhunCtrl">
           <div class="panel panel-default">
               <div class="panel-heading"><span class="lead">User Registration Form </span></div>
               <div class="formcontainer">
-                  <form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
-                      <input type="hidden" ng-model="ctrl.user.id" />
+                  <form ng-submit="jhunCtrl.submit()" name="myForm" class="form-horizontal">
+                      <input type="hidden" ng-model="jhunCtrl.user.id" />
                       <div class="row">
                           <div class="form-group col-md-12">
                               <label class="col-md-2 control-lable" for="file">Name</label>
                               <div class="col-md-7">
-                                  <input type="text" ng-model="ctrl.user.username" name="uname" class="username form-control input-sm" placeholder="Enter your name" required ng-minlength="3"/>
+                                  <input type="text" ng-model="jhunCtrl.user.username" name="uname" class="username form-control input-sm" placeholder="Enter your name" required ng-minlength="3"/>
                                   <div class="has-error" ng-show="myForm.$dirty">
                                       <span ng-show="myForm.uname.$error.required">This is a required field</span>
                                       <span ng-show="myForm.uname.$error.minlength">Minimum length required is 3</span>
@@ -54,7 +54,7 @@
                           <div class="form-group col-md-12">
                               <label class="col-md-2 control-lable" for="file">Address</label>
                               <div class="col-md-7">
-                                  <input type="text" ng-model="ctrl.user.address" class="form-control input-sm" placeholder="Enter your Address. [This field is validation free]"/>
+                                  <input type="text" ng-model="jhunCtrl.user.address" class="form-control input-sm" placeholder="Enter your Address. [This field is validation free]"/>
                               </div>
                           </div>
                       </div>
@@ -63,7 +63,7 @@
                           <div class="form-group col-md-12">
                               <label class="col-md-2 control-lable" for="file">Email</label>
                               <div class="col-md-7">
-                                  <input type="email" ng-model="ctrl.user.email" name="email" class="email form-control input-sm" placeholder="Enter your Email" required/>
+                                  <input type="email" ng-model="jhunCtrl.user.email" name="email" class="email form-control input-sm" placeholder="Enter your Email" required/>
                                   <div class="has-error" ng-show="myForm.$dirty">
                                       <span ng-show="myForm.email.$error.required">This is a required field</span>
                                       <span ng-show="myForm.email.$invalid">This field is invalid </span>
@@ -74,8 +74,8 @@
 
                       <div class="row">
                           <div class="form-actions floatRight">
-                              <input type="submit"  value="{{!ctrl.user.id ? 'Add' : 'Update'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
-                              <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset Form</button>
+                              <input type="submit"  value="{{!jhunCtrl.user.id ? 'Add' : 'Update'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
+                              <button type="button" ng-click="jhunCtrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset Form</button>
                           </div>
                       </div>
                   </form>
@@ -96,13 +96,13 @@
                           </tr>
                       </thead>
                       <tbody>
-                          <tr ng-repeat="u in ctrl.users">
+                          <tr ng-repeat="u in jhunCtrl.users">
                               <td><span ng-bind="u.id"></span></td>
                               <td><span ng-bind="u.username"></span></td>
                               <td><span ng-bind="u.address"></span></td>
                               <td><span ng-bind="u.email"></span></td>
                               <td>
-                              <button type="button" ng-click="ctrl.remove(u.id)" class="btn btn-success custom-width">Edit2</button>  <button type="button" ng-click="ctrl.remove(u.id)" class="btn btn-danger custom-width">Remove</button>
+                              <button type="button" ng-click="jhunCtrl.remove(u.id)" class="btn btn-success custom-width">Edit2</button>  <button type="button" ng-click="jhunCtrl.remove(u.id)" class="btn btn-danger custom-width">Remove</button>
                               </td>
                           </tr>
                       </tbody>

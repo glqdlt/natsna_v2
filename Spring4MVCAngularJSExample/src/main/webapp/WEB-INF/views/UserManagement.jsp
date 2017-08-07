@@ -113,10 +113,6 @@
       </div>
       
 
-<div class="generic-container" ng-controller="UserController as ctrl2">
-
-</div>
-      
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
       <script src="<c:url value='/static/js/app.js' />"></script>
       <script src="<c:url value='/static/js/service/user_service.js' />"></script>
