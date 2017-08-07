@@ -8,9 +8,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/")
 public class IndexController {
 
-	  @RequestMapping(method = RequestMethod.GET)
+	
+	  @RequestMapping(value="/1", method = RequestMethod.GET)
 	    public String getIndexPage() {
 	        return "UserManagement";
 	    }
+	  
+	  @RequestMapping(value="/2", method = RequestMethod.GET)
+	  public String getIndexPage2() {
+		  return "UserManagement2";
+	  }
 
 }
