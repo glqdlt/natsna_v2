@@ -17,7 +17,7 @@ public class MemberTest {
 	public void test() {
 
 		// one
-		Member mem = new Member("hong22", "hi22");
+		Member mem = new Member("hong223", "hi22");
 
 		insert(mem);
 
@@ -27,17 +27,17 @@ public class MemberTest {
 		assertEquals("hi22", selectedMember.getMessage());
 		System.out.println(selectById(1).getMessage());
 
-		// update
-		selectedMember.setMessage("wow");
-		update(selectedMember);
-		
-		Member updateMember = selectById(1);
-		assertEquals("wow", updateMember.getMessage());
-		System.out.println(updateMember.getMessage());
-		
-		//delete
-		detete(updateMember);
-		System.out.println(selectById(1));
+		// // update
+		// selectedMember.setMessage("wow");
+		// update(selectedMember);
+		//
+		// Member updateMember = selectById(1);
+		// assertEquals("wow", updateMember.getMessage());
+		// System.out.println(updateMember.getMessage());
+		//
+		// //delete
+		// detete(updateMember);
+		// System.out.println(selectById(1));
 
 	}
 
