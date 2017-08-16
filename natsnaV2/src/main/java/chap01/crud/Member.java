@@ -3,7 +3,6 @@ package chap01.crud;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 // 클래스인 동시에 테이블 임을 명시
@@ -50,5 +49,10 @@ public class Member {
 
 	public Member() {
 		// TODO Auto-generated constructor stub
+	}
+	
+	@Override
+	public String toString() {
+		return id+","+name+","+message;
 	}
 }

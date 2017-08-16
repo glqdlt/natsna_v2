@@ -2,8 +2,11 @@ package chap01test.crud;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.junit.Test;
 
 import chap01.crud.Member;
@@ -24,21 +27,23 @@ public class MemberTest {
 		// select one
 
 		Member selectedMember = selectById(1);
-		assertEquals("hi22", selectedMember.getMessage());
+		// assertEquals("hi22", selectedMember.getMessage());
 		System.out.println(selectById(1).getMessage());
 
-		// // update
-		// selectedMember.setMessage("wow");
-		// update(selectedMember);
-		//
-		// Member updateMember = selectById(1);
-		// assertEquals("wow", updateMember.getMessage());
-		// System.out.println(updateMember.getMessage());
-		//
+		// update
+		selectedMember.setMessage("wow");
+		update(selectedMember);
+
+		Member updateMember = selectById(1);
+		assertEquals("wow", updateMember.getMessage());
+		System.out.println(updateMember.getMessage());
+
 		// //delete
 		// detete(updateMember);
 		// System.out.println(selectById(1));
 		
+		selectByAll().forEach(x -> System.out.println(x.toString()));
+
 		HibernateUtil.shutdown();
 	}
 
@@ -65,6 +70,15 @@ public class MemberTest {
 		session.getTransaction().commit();
 
 		return selectedMember;
+	}
+
+	@SuppressWarnings("unchecked")
+	private List<Member> selectByAll() {
+		Session session = sessionFac.getCurrentSession();
+		session.beginTransaction();
+		return session.createCriteria(Member.class).list();
+		// return session.createQuery("from Member").list();
+
 	}
 
 	private void insert(Member mem) {
