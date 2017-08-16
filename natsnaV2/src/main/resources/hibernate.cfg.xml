@@ -13,7 +13,7 @@
 				<property name="connection.url">jdbc:mysql://localhost:3306/dls</property>
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="connection.username">root</property>
-		<property name="connection.password">root</property>
+		<property name="connection.password">1234</property>
 		<!-- <property name="dialect">org.hibernate.dialect.DerbyDialect</property> -->
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 
@@ -22,8 +22,16 @@
 		<property name="current_session_context_class">thread</property>
 		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
 		<property name="show_sql">true</property>
-		<property name="hbm2ddl.auto">create</property>
+		
+		<!-- 테이블이 존재할 경우의 대한 처리
+		create 냐 update 냐에 따라서를 떠나서 무조건 Member 라는 테이블이 없으면 생성한다. 
+		create = 있으면 drop 하고 새로 생성. 
+		update = 있으면 update
+		-->
+		<property name="hbm2ddl.auto">update</property>
+		
 
+		<!-- entity 로 맵핑할 객체(따지고 보면 테이블) -->
 		<mapping class="chap01.crud.Member" />
 
 	</session-factory>

@@ -17,7 +17,7 @@ public class MemberTest {
 	public void test() {
 
 		// one
-		Member mem = new Member("hong223", "hi22");
+		Member mem = new Member("hong2234", "hi22");
 
 		insert(mem);
 
@@ -38,7 +38,8 @@ public class MemberTest {
 		// //delete
 		// detete(updateMember);
 		// System.out.println(selectById(1));
-
+		
+		HibernateUtil.shutdown();
 	}
 
 	private void detete(Member updateMember) {
